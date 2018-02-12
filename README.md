@@ -14,5 +14,5 @@
 ### Build for production with minification
 yarn build
 
-# Lint
+### Lint
 `yarn lint`
