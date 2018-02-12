@@ -16,3 +16,7 @@ yarn build
 
 ### Lint
 `yarn lint`
+
+## Installed packages
+* axios
+* vue-router
