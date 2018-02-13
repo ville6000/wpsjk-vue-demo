@@ -12,7 +12,7 @@
 `yarn serve`
 
 ### Build for production with minification
-yarn build
+`yarn build`
 
 ### Lint
 `yarn lint`
