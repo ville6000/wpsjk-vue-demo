@@ -3,9 +3,9 @@
     class="post"
     v-if="post">
 
-    <h1 class="entry-title">
-      {{ post.title.rendered }}
-    </h1>
+    <h1
+      class="entry-title"
+      v-html="post.title.rendered" />
 
     <div class="entry-meta">
       <div class="entry-date">
@@ -17,7 +17,6 @@
       class="entry-content"
       v-html="post.content.rendered"/>
   </article>
-
 </template>
 
 <script>
