@@ -7,6 +7,12 @@
       {{ post.title.rendered }}
     </h1>
 
+    <div class="entry-meta">
+      <div class="entry-date">
+        {{ post.modified | moment('DD.MM.YYYY H:m') }}
+      </div>
+    </div>
+
     <div
       class="entry-content"
       v-html="post.content.rendered"/>
@@ -38,5 +44,7 @@
 </script>
 
 <style scoped>
-
+  .entry-meta {
+    color: #666;
+  }
 </style>
