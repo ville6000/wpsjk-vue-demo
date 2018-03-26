@@ -9,9 +9,7 @@
         v-html="post.title.rendered"/>
 
       <div class="entry-meta">
-        <div class="entry-date">
-          {{ post.modified | moment('DD.MM.YYYY HH:m') }}
-        </div>
+        {{ post.modified | moment('DD.MM.YYYY HH:m') }}
       </div>
 
       <div
@@ -20,7 +18,7 @@
     </article>
 
     <div class="sidebar">
-      <PostList />
+      <PostList/>
     </div>
   </div>
 </template>
