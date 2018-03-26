@@ -1,6 +1,6 @@
 <template>
   <div class="post-list">
-    <h1>Post List</h1>
+    <h2>Post List</h2>
 
     <ul v-if="posts.length > 0">
       <li
@@ -38,5 +38,4 @@
 </script>
 
 <style scoped>
-
 </style>

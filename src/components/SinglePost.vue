@@ -1,40 +1,53 @@
 <template>
-  <article
-    class="post"
-    v-if="post">
+  <div class="content">
+    <article
+      class="post"
+      v-if="post">
 
-    <h1
-      class="entry-title"
-      v-html="post.title.rendered" />
+      <h1
+        class="entry-title"
+        v-html="post.title.rendered"/>
 
-    <div class="entry-meta">
-      <div class="entry-date">
-        {{ post.modified | moment('DD.MM.YYYY H:m') }}
+      <div class="entry-meta">
+        <div class="entry-date">
+          {{ post.modified | moment('DD.MM.YYYY HH:m') }}
+        </div>
       </div>
-    </div>
 
-    <div
-      class="entry-content"
-      v-html="post.content.rendered"/>
-  </article>
+      <div
+        class="entry-content"
+        v-html="post.content.rendered"/>
+    </article>
+
+    <div class="sidebar">
+      <PostList />
+    </div>
+  </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import PostList from '@/components/PostList'
 
   export default {
     name: 'SinglePost',
+    components: {
+      'PostList': PostList
+    },
     data () {
       return {
         post: false
       }
     },
+    watch: {
+      '$route': 'fetchPost'
+    },
     created () {
-      this.fetchPost(this.$route.params.id)
+      this.fetchPost()
     },
     methods: {
-      fetchPost (postId) {
-        axios.get(process.env.VUE_APP_REST_URL + postId).then((response) => {
+      fetchPost () {
+        axios.get(process.env.VUE_APP_REST_URL + this.$route.params.id).then((response) => {
           this.post = response.data
         })
       }
@@ -43,6 +56,19 @@
 </script>
 
 <style scoped>
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sidebar {
+    width: 30%;
+  }
+
+  .post {
+    width: 65%
+  }
+
   .entry-meta {
     color: #666;
   }
