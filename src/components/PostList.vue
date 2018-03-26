@@ -2,11 +2,14 @@
   <div class="post-list">
     <h1>Post List</h1>
 
-    <ul>
+    <ul v-if="posts.length > 0">
       <li
         v-for="post in posts"
-        :key="post.id"
-        v-html="post.title.rendered" />
+        :key="post.id">
+        <router-link
+          :to="{ name:'SinglePost', params: { id: post.id, slug: post.slug } }"
+          v-html="post.title.rendered"/>
+      </li>
     </ul>
   </div>
 </template>
