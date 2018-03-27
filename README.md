@@ -8,7 +8,7 @@
 ### install dependencies
 `yarn install`
 
-`npm run install`
+`npm install`
 
 ### Serve with hot reload at localhost:8080
 `yarn serve`
